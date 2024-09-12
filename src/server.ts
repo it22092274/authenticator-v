@@ -12,9 +12,13 @@ app.use(cors())
 
 conn()
 
+import userRoute from './routes/user.route'
+
 app.get('/', async (req: Request, res: Response) => {
     res.send('hello auth v')
 })
+
+app.use('/api/user', userRoute)
 
 app.listen(process.env.PORT || 3000, () => {
     console.log('server running');    
